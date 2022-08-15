@@ -1,8 +1,9 @@
+import { useState } from 'react'
+import styled from 'styled-components'
 import { TaskFilters } from './components/TaskFilters'
-import { SearchBar } from './components/SearchBar'
+import { NewTaskBar } from './components/NewTaskBar'
 import { Task } from './components/Task'
 import { TaskList } from './components/Tasklist'
-import styled from 'styled-components'
 import { font, weight } from './styles/styleConfig'
 
 const Title = styled.h1`
@@ -16,18 +17,20 @@ const Container = styled.main`
   margin-inline: auto;
 `
 
-const taskList = [
+const initialTaskList = [
   { text: 'Do coding challenge', completed: false },
   { text: 'Do coding challenge', completed: true },
   { text: 'Do coding challenge', completed: false }
 ]
 
 export const App = () => {
+  const [taskList, setTaskList] = useState(initialTaskList)
+
   return (
     <Container>
       <Title>#Todo</Title>
       <TaskFilters />
-      <SearchBar />
+      <NewTaskBar setTaskList={setTaskList} />
       <TaskList>
         {
           taskList.map((task, id) => (
