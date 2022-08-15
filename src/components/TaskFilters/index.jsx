@@ -1,11 +1,11 @@
+import { TaskBar } from './styles'
+
 export const TaskFilters = () => {
   return (
-    <nav>
-      <ul>
-        <li>All</li>
-        <li>Active</li>
-        <li>Completed</li>
-      </ul>
-    </nav>
+    <TaskBar>
+      <div>All</div>
+      <div>Active</div>
+      <div>Completed</div>
+    </TaskBar>
   )
 }

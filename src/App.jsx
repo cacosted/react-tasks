@@ -7,6 +7,11 @@ import styled from 'styled-components'
 const Title = styled.h1`
   text-align: center;
 `
+const Container = styled.main`
+  margin-block-start: 2em;
+  max-width: 600px;
+  margin-inline: auto;
+`
 
 const taskList = [
   { text: 'Do coding challenge', completed: false },
@@ -16,7 +21,7 @@ const taskList = [
 
 export const App = () => {
   return (
-    <>
+    <Container>
       <Title>#Todo</Title>
       <TaskFilters />
       <SearchBar />
@@ -27,6 +32,6 @@ export const App = () => {
           ))
         }
       </TaskList>
-    </>
+    </Container>
   )
 }
