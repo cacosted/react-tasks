@@ -25,11 +25,12 @@ const initialTaskList = [
 
 export const App = () => {
   const [taskList, setTaskList] = useState(initialTaskList)
+  const [activeTab, setActiveTab] = useState('All')
 
   return (
     <Container>
       <Title>#Todo</Title>
-      <TaskFilters />
+      <TaskFilters activeTab={activeTab} setActiveTab={setActiveTab} />
       <NewTaskBar setTaskList={setTaskList} />
       <TaskList>
         {
