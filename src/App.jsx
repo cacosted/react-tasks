@@ -1,29 +1,32 @@
-function App () {
+import { TaskFilters } from './components/TaskFilters'
+import { SearchBar } from './components/SearchBar'
+import { Task } from './components/Task'
+import { TaskList } from './components/Tasklist'
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  text-align: center;
+`
+
+const taskList = [
+  { text: 'Do coding challenge', completed: false },
+  { text: 'Do coding challenge', completed: true },
+  { text: 'Do coding challenge', completed: false }
+]
+
+export const App = () => {
   return (
     <>
-      <h1>#Todo</h1>
-      <nav>
-        <ul>
-          <li>All</li>
-          <li>Active</li>
-          <li>Completed</li>
-        </ul>
-      </nav>
-      <input type='text' placeholder='add details' />
-      <button>Add</button>
-      <ul>
-        <li>
-          <input type='checkbox' /><span>Do coding challenge</span>
-        </li>
-        <li>
-          <input type='checkbox' /><span>Do coding challenge</span>
-        </li>
-        <li>
-          <input type='checkbox' /><span>Do coding challenge</span>
-        </li>
-      </ul>
+      <Title>#Todo</Title>
+      <TaskFilters />
+      <SearchBar />
+      <TaskList>
+        {
+          taskList.map((task, id) => (
+            <Task key={id} text={task.text} completed={task.completed} />
+          ))
+        }
+      </TaskList>
     </>
   )
 }
-
-export default App
