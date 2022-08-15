@@ -3,9 +3,12 @@ import { SearchBar } from './components/SearchBar'
 import { Task } from './components/Task'
 import { TaskList } from './components/Tasklist'
 import styled from 'styled-components'
+import { font, weight } from './styles/styleConfig'
 
 const Title = styled.h1`
   text-align: center;
+  font-family: ${font.accent};
+  font-weight: ${weight.bold};
 `
 const Container = styled.main`
   margin-block-start: 2em;

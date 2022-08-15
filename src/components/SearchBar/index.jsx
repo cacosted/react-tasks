@@ -1,8 +1,10 @@
+import { SearchInput, SearchButton, StyledSearchBar } from './styles'
+
 export const SearchBar = () => {
   return (
-    <div>
-      <input type='text' placeholder='add details' />
-      <button>Add</button>
-    </div>
+    <StyledSearchBar>
+      <SearchInput type='text' placeholder='add details' />
+      <SearchButton>Add</SearchButton>
+    </StyledSearchBar>
   )
 }

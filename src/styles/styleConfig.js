@@ -7,8 +7,16 @@ export const color = {
   main: '#2F80ED',
   secondary: '#000',
   dark: '#333333',
+  white: '#FFF',
   light: '#BDBDBD',
   accent: '#EB5757'
+}
+
+export const weight = {
+  light: 400,
+  regular: 500,
+  semiBold: 600,
+  bold: 700
 }
 
 export const shadow = {
