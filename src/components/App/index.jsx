@@ -1,21 +1,9 @@
 import { useState } from 'react'
-import styled from 'styled-components'
-import { TaskFilters } from './components/TaskFilters'
-import { NewTaskBar } from './components/NewTaskBar'
-import { Task } from './components/Task'
-import { TaskList } from './components/Tasklist'
-import { font, weight } from './styles/styleConfig'
-
-const Title = styled.h1`
-  text-align: center;
-  font-family: ${font.accent};
-  font-weight: ${weight.bold};
-`
-const Container = styled.main`
-  margin-block-start: 2em;
-  max-width: 600px;
-  margin-inline: auto;
-`
+import { TaskFilters } from '../TaskFilters'
+import { NewTaskBar } from '../NewTaskBar'
+import { Task } from '../Task'
+import { TaskList } from '../Tasklist'
+import { Title, Container } from './styles'
 
 const initialTaskList = [
   { text: 'I can add a new task', completed: false },
