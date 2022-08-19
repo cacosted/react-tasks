@@ -10,7 +10,7 @@ const RegularTasks = ({ tasks, completeTask }) => {
   )
 }
 
-const CompletedTasks = ({ tasks, completeTask }) => {
+const CompletedTasks = ({ tasks, completeTask, deleteTask, deleteAllTasks }) => {
   const completedTasks = tasks.filter(tasks => tasks.completed)
   return (
     <CompletedContainer>
@@ -18,17 +18,18 @@ const CompletedTasks = ({ tasks, completeTask }) => {
         completedTasks.map((task, id) => (
           <CompletedCard key={id}>
             <Task text={task.text} completed={task.completed} completeTask={completeTask} />
-            <DeleteIcon src={trashIcon} alt='Delete' />
+            <DeleteIcon id={task.text} src={trashIcon} alt='Delete' onClick={deleteTask} />
           </CompletedCard>
         ))
       }
-      <DeleteAllButton>
+      <DeleteAllButton onClick={deleteAllTasks}>
         <span>Delete all</span>
       </DeleteAllButton>
     </CompletedContainer>
   )
 }
-export const TaskList = ({ activeTab, completeTask, tasks }) => {
+
+export const TaskList = ({ activeTab, completeTask, deleteTask, deleteAllTasks, tasks }) => {
   let taskArray = [...tasks]
 
   if (activeTab === 'Active') {
@@ -36,7 +37,7 @@ export const TaskList = ({ activeTab, completeTask, tasks }) => {
   }
 
   if (activeTab === 'Completed') {
-    return <CompletedTasks tasks={tasks} completeTask={completeTask} />
+    return <CompletedTasks tasks={tasks} completeTask={completeTask} deleteTask={deleteTask} deleteAllTasks={deleteAllTasks} />
   }
 
   return <RegularTasks tasks={taskArray} completeTask={completeTask} />

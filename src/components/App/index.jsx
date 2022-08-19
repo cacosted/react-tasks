@@ -16,18 +16,31 @@ export const App = () => {
   const completeTask = ({ target }) => {
     const currentId = target.parentElement.id
 
-    const updatedTask = tasks.map(task => {
+    const updatedTasks = tasks.map(task => {
       if (task.text === currentId) return { ...task, completed: !task.completed }
       return task
     })
-    setTasks(updatedTask)
+    setTasks(updatedTasks)
   }
+  const deleteTask = ({ target }) => {
+    const currentId = target.id
+
+    const updatedTasks = tasks.filter(task => task.text !== currentId)
+
+    setTasks(updatedTasks)
+  }
+
+  const deleteAllTasks = () => {
+    const updatedTasks = tasks.filter(task => !task.completed)
+    setTasks(updatedTasks)
+  }
+
   return (
     <Container>
       <Title>#Todo</Title>
       <TaskFilters activeTab={activeTab} setActiveTab={setActiveTab} />
       <NewTaskBar setTasks={setTasks} />
-      <TaskList completeTask={completeTask} activeTab={activeTab} tasks={tasks} />
+      <TaskList completeTask={completeTask} deleteTask={deleteTask} deleteAllTasks={deleteAllTasks} activeTab={activeTab} tasks={tasks} />
     </Container>
   )
 }
