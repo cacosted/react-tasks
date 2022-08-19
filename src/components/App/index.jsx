@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { TaskFilters } from '../TaskFilters'
 import { NewTaskBar } from '../NewTaskBar'
-import { Task } from '../Task'
 import { TaskList } from '../Tasklist'
 import { Title, Container } from './styles'
 
@@ -28,13 +27,7 @@ export const App = () => {
       <Title>#Todo</Title>
       <TaskFilters activeTab={activeTab} setActiveTab={setActiveTab} />
       <NewTaskBar setTasks={setTasks} />
-      <TaskList>
-        {
-          tasks.map((task, id) => (
-            <Task key={id} text={task.text} completed={task.completed} completeTask={completeTask} />
-          ))
-        }
-      </TaskList>
+      <TaskList completeTask={completeTask} activeTab={activeTab} tasks={tasks} />
     </Container>
   )
 }
