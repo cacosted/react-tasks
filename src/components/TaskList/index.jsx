@@ -1,5 +1,7 @@
 import { Task } from '../Task'
 import trashIcon from '../../assets/trash.svg'
+import { CompletedContainer, CompletedCard, DeleteIcon, DeleteAllButton } from './styles'
+
 const RegularTasks = ({ tasks, completeTask }) => {
   return (
     tasks.map((task, id) => (
@@ -9,28 +11,33 @@ const RegularTasks = ({ tasks, completeTask }) => {
 }
 
 const CompletedTasks = ({ tasks, completeTask }) => {
+  const completedTasks = tasks.filter(tasks => tasks.completed)
   return (
-    <div>
+    <CompletedContainer>
       {
-        tasks.map((task, id) => (
-          <div key={id}>
+        completedTasks.map((task, id) => (
+          <CompletedCard key={id}>
             <Task text={task.text} completed={task.completed} completeTask={completeTask} />
-            <img src={trashIcon} alt='Delete' />
-          </div>
+            <DeleteIcon src={trashIcon} alt='Delete' />
+          </CompletedCard>
         ))
       }
-      <button>Delete all</button>
-    </div>
+      <DeleteAllButton>
+        <span>Delete all</span>
+      </DeleteAllButton>
+    </CompletedContainer>
   )
 }
 export const TaskList = ({ activeTab, completeTask, tasks }) => {
   let taskArray = [...tasks]
+
   if (activeTab === 'Active') {
     taskArray = tasks.filter(task => !task.completed)
   }
+
   if (activeTab === 'Completed') {
-    const completedTasks = tasks.filter(tasks => tasks.completed)
-    return <CompletedTasks tasks={completedTasks} completeTask={completeTask} />
+    return <CompletedTasks tasks={tasks} completeTask={completeTask} />
   }
+
   return <RegularTasks tasks={taskArray} completeTask={completeTask} />
 }
