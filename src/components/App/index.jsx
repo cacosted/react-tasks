@@ -13,6 +13,7 @@ const initialTaskList = [
 export const App = () => {
   const [tasks, setTasks] = useState(initialTaskList)
   const [activeTab, setActiveTab] = useState('All')
+
   const completeTask = ({ target }) => {
     const currentId = target.parentElement.id
 
@@ -22,6 +23,7 @@ export const App = () => {
     })
     setTasks(updatedTasks)
   }
+
   const deleteTask = ({ target }) => {
     const currentId = target.id
 

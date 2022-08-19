@@ -6,12 +6,18 @@ export const NewTaskBar = ({ setTasks }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setTasks(prev => {
-      return [
-        ...prev,
-        { text: newTask, completed: false }
-      ]
-    })
+    if (newTask.trim()) {
+      setTasks(prev => {
+        return [
+          ...prev,
+          { text: newTask, completed: false }
+        ]
+      })
+    }
+
+    const input = e.target.firstChild
+    input.value = ''
+    setNewTask('')
   }
 
   const handleChange = (e) => {
