@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { color } from '../../styles/styleConfig'
 
 export const CompletedContainer = styled.div`
-  padding-block: 1em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -25,6 +24,6 @@ export const DeleteAllButton = styled.button`
   background-color: ${color.accent};
   color: ${color.white};
   border-radius: 4px;
-  padding-inline: 2em;
+  padding: 1em 2em;
   border: none;
 `
