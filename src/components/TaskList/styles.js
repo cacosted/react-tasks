@@ -25,6 +25,6 @@ export const DeleteAllButton = styled.button`
   background-color: ${color.accent};
   color: ${color.white};
   border-radius: 4px;
-  padding: 1em 2em;
+  padding-inline: 2em;
   border: none;
 `

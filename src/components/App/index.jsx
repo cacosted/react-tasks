@@ -42,7 +42,13 @@ export const App = () => {
       <Title>#Todo</Title>
       <TaskFilters activeTab={activeTab} setActiveTab={setActiveTab} />
       <NewTaskBar setTasks={setTasks} />
-      <TaskList completeTask={completeTask} deleteTask={deleteTask} deleteAllTasks={deleteAllTasks} activeTab={activeTab} tasks={tasks} />
+      <TaskList
+        completeTask={completeTask}
+        deleteTask={deleteTask}
+        deleteAllTasks={deleteAllTasks}
+        activeTab={activeTab}
+        tasks={tasks}
+      />
     </Container>
   )
 }
