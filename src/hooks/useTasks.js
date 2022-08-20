@@ -5,12 +5,11 @@ export const useTasks = (initial = []) => {
 
   const createTask = (newTask) => {
     if (newTask.trim()) {
-      setTasks(prev => {
-        return [
-          ...prev,
-          { text: newTask, completed: false }
-        ]
-      })
+      const updatedTasks = [
+        ...tasks,
+        { text: newTask, completed: false }
+      ]
+      setTasks(updatedTasks)
     }
   }
   const completeTask = ({ target }) => {
