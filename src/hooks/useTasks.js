@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useLocalStorage } from './useLocalStorage'
+
+const TASK_KEY = 'TASK_LIST_V1'
 
 export const useTasks = (initial = []) => {
-  const [tasks, setTasks] = useState(initial)
-
+  // const [tasks, setTasks] = useState(initial)
+  const [tasks, setTasks] = useLocalStorage(TASK_KEY, initial)
   const createTask = (newTask) => {
     if (newTask.trim()) {
       const updatedTasks = [
@@ -12,6 +14,7 @@ export const useTasks = (initial = []) => {
       setTasks(updatedTasks)
     }
   }
+
   const completeTask = ({ target }) => {
     const currentId = target.parentElement.id
 

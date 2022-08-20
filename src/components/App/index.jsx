@@ -5,15 +5,9 @@ import { TaskList } from '../Tasklist'
 import { Title, Container } from './styles'
 import { useTasks } from '../../hooks/useTasks'
 
-const initialTaskList = [
-  { text: 'I can add a new task', completed: false },
-  { text: 'I can complete a task', completed: true },
-  { text: 'I can toggle between tabs', completed: false }
-]
-
 export const App = () => {
   const [activeTab, setActiveTab] = useState('All')
-  const { tasks, createTask, completeTask, deleteTask, deleteAllTasks } = useTasks(initialTaskList)
+  const { tasks, createTask, completeTask, deleteTask, deleteAllTasks } = useTasks()
   return (
     <Container>
       <Title>#Todo</Title>
