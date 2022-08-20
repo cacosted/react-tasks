@@ -1,19 +1,12 @@
 import { TaskInput, TaskButton, StyledTaskBar } from './styles'
 import { useState } from 'react'
 
-export const NewTaskBar = ({ setTasks }) => {
+export const NewTaskBar = ({ createTask }) => {
   const [newTask, setNewTask] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (newTask.trim()) {
-      setTasks(prev => {
-        return [
-          ...prev,
-          { text: newTask, completed: false }
-        ]
-      })
-    }
+    createTask(newTask)
 
     const input = e.target.firstChild
     input.value = ''

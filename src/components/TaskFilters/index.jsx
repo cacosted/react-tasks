@@ -1,15 +1,21 @@
 import { TaskBar, TaskTab } from './styles'
 
+const tabs = {
+  all: 'All',
+  active: 'Active',
+  completed: 'Completed'
+}
+
 export const TaskFilters = ({ activeTab, setActiveTab }) => {
-  const handleClick = ({ target }) => {
-    const tabName = target.id
+  const handleClick = (tabName) => {
     setActiveTab(tabName)
   }
+
   return (
     <TaskBar>
-      <TaskTab id='All' active={activeTab === 'All'} onClick={handleClick}>All</TaskTab>
-      <TaskTab id='Active' active={activeTab === 'Active'} onClick={handleClick}>Active</TaskTab>
-      <TaskTab id='Completed' active={activeTab === 'Completed'} onClick={handleClick}>Completed</TaskTab>
+      <TaskTab active={activeTab === tabs.all} onClick={() => handleClick(tabs.all)}>All</TaskTab>
+      <TaskTab active={activeTab === tabs.active} onClick={() => handleClick(tabs.active)}>Active</TaskTab>
+      <TaskTab active={activeTab === tabs.completed} onClick={() => handleClick(tabs.completed)}>Completed</TaskTab>
     </TaskBar>
   )
 }
