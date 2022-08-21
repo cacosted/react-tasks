@@ -1,5 +1,6 @@
 import { Task } from '../Task'
 import trashIcon from '../../assets/trash.svg'
+import { PlaceHolder } from '../PlaceHolder'
 import { CompletedContainer, CompletedCard, DeleteIcon, DeleteAllButton } from './styles'
 
 const RegularTasks = ({ tasks, completeTask }) => {
@@ -31,6 +32,9 @@ const CompletedTasks = ({ tasks, completeTask, deleteTask, deleteAllTasks }) => 
 
 export const TaskList = ({ activeTab, completeTask, deleteTask, deleteAllTasks, tasks }) => {
   let taskArray = [...tasks]
+  if (taskArray.length === 0) {
+    return <PlaceHolder />
+  }
 
   if (activeTab === 'Active') {
     taskArray = tasks.filter(task => !task.completed)
