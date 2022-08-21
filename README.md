@@ -1,6 +1,7 @@
 # ReactList - Todo app
 
-![Preview Design]()
+![Preview Design](https://user-images.githubusercontent.com/57645180/185802324-17d29597-2603-4576-80de-3c86392cedfb.png)
+
 
 This is a solution of Todo app challenge from [Dev Challenges](http://devchallenges.io).
 
